@@ -1,0 +1,9 @@
+{
+    "valid_credentials": {
+        "valid_user": "standard_user",
+        "valid_password": "secret_sauce",
+        "invalid_user": "invalid123",
+        "invalid_password": "qwerty456",
+        "locked_user": "locked_out_user"
+    }
+}
