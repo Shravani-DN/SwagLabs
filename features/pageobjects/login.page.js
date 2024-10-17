@@ -20,6 +20,9 @@ class LoginPage extends Page {
         return $('~test-LOGIN');
     }
 
+    get flashAlert() {
+        return $("//android.view.ViewGroup[@content-desc='test-Error message']/android.widget.TextView");
+    }
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password

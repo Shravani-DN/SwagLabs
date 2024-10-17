@@ -10,6 +10,10 @@
     "appium-uiautomator2-driver": "^3.8.0"
   },
   "scripts": {
-    "wdio": "wdio run ./wdio.conf.js"
+    "wdio": "wdio run ./wdio.conf.js",
+    "test": "node --max-old-space-size=4096 ./node_modules/.bin/wdio wdio.conf.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
   }
 }

@@ -1,5 +1,14 @@
 Feature: Swag Labs Demo App Login Functionality check
 
+  Scenario Outline: Login with valid username and password
+    Given I am on the login page
+    When I login with <username> and <password>
+    Then I should see a dashboard with text
+
+    Examples:
+      | username   | password       |
+      | valid_user | valid_password |
+
   Scenario Outline: Login with invalid username
     Given I am on the login page
     When I login with <username> and <password>
@@ -37,12 +46,3 @@ Feature: Swag Labs Demo App Login Functionality check
     Examples:
       | username    | password       | message                               |
       | locked_user | valid_password | Sorry, this user has been locked out. |
-
-  Scenario Outline: Login with valid username and password
-    Given I am on the login page
-    When I login with <username> and <password>
-    Then I should see a dashboard with text
-
-    Examples:
-      | username   | password       |
-      | valid_user | valid_password |

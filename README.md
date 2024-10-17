@@ -13,7 +13,7 @@ This project uses **WebDriverIO** to automate testing of web and mobile applicat
 1. **Clone the Repository:**
 
    ```bash
-   git clone <your-repository-url>
+   git clone https://github.com/Shravani-DN/SwagLabs.git
    cd <your-project-directory>
    ```
 
@@ -45,17 +45,12 @@ This project uses **WebDriverIO** to automate testing of web and mobile applicat
   npx wdio run ./wdio.conf.js
   ```
 
-- **To run specific test files**, add a `--spec` parameter:
+- **To run specific test files**, add a `--spec` feature:
 
   ```bash
-  npx wdio run ./wdio.conf.js --spec example.e2e.js
-  ```
+  npx wdio run wdio.conf.js --spec ./path/to/your/feature/file.feature
 
-- **To run a specific test suite**, use:
-  ```bash
-  npx wdio run ./wdio.conf.js --suite exampleSuiteName
   ```
-
 ## Project Structure
 
 The project follows the **Page Object Model (POM)** pattern to organize test scripts, making them more readable, maintainable, and reusable.
@@ -65,27 +60,35 @@ The project follows the **Page Object Model (POM)** pattern to organize test scr
 │
 ├── /features
 │   ├── /helper
+        ├── gestures.js
 │   │   └── Utils.js
 │   ├── /pageobjects
+│   │   ├── dashboard.page.js
 │   │   ├── login.page.js
-│   │   ├── page.js
-│   │   └── secure.page.js
+        ├── menu.page.js
+│   │   └── page.js
 │   ├── /step-definitions
 │   │   └── steps.js
+    ├── /support
+│   │   └── hooks.js
 │   └── login.feature
 │
-├── /allure-results
-├── /wdio.conf.js
+├── wdio.conf.js
+├── .env
+├── .gitignore
 ├── package.json
 └── README.md
 
 ```
 
-## Key Features of WebDriverIO
+## .env requirement
 
-- **Extendable**: Easily add helper functions or complex command sets.
-- **Compatible**: Supports WebDriver Protocol for cross-browser testing and Chrome DevTools Protocol for Chromium-based automation.
-- **Feature Rich**: Integration with a variety of plugins and tools.
+Need to create .env under the root folder
+Add path of the android apk for `ANDROID_APP_PATH`
+
+example:
+```ANDROID_APP_PATH="/Users/shravanidn/Downloads/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk";```
+
 
 ## Useful Commands
 
@@ -100,6 +103,11 @@ The project follows the **Page Object Model (POM)** pattern to organize test scr
   npx wdio run ./wdio.conf.js
   ```
 
+- **Allure Report Generation**:
+  ```bash
+  allure serve
+  ```
+
 ## Troubleshooting
 
 - Ensure Node.js is correctly installed and updated to the required version.
@@ -108,6 +116,8 @@ The project follows the **Page Object Model (POM)** pattern to organize test scr
 ## System Requirements
 
 - Node.js v18.20.0 or higher
+- Appium 2.0 or higher
+- Android Studio
 
 ## Additional Resources
 

@@ -4,6 +4,11 @@ export const CONTEXT_REF = {
 };
 
 export default class Utils {
+
+
+    /**
+     * method to wait for all the app contexts to be loaded
+     */
     async waitForWebViewContextLoaded() {
         await driver.waitUntil(
             async () => {
@@ -20,6 +25,11 @@ export default class Utils {
         },
         );
     }
+
+    /**
+     * Switch the app context to the given context
+     * @param context = Context user intends to change
+     */
     async switchToContext(context) {
         // The first context will always be the NATIVE_APP,
         // the second one will always be the WebdriverIO web page
@@ -33,10 +43,16 @@ export default class Utils {
         return driver.getContexts();
     }
 
+    /**
+     * method to turn on the device wifi
+     */
     async turnOnWifi() {
         driver.turnOnWifi();
     }
 
+    /**
+     * method to turn off the device wifi
+     */
     async turnOffWifi() {
         driver.turnOffWifi();
     }

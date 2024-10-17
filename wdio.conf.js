@@ -1,3 +1,5 @@
+import dotenv from 'dotenv';
+dotenv.config();
 export const config = {
     //
     // ====================
@@ -5,6 +7,7 @@ export const config = {
     // ====================
     // WebdriverIO supports running e2e tests as well as unit and component tests.
     runner: 'local',
+
     //
     // ==================
     // Specify Test Files
@@ -53,17 +56,17 @@ export const config = {
     capabilities: [{
         // capabilities for local Appium web tests on an Android Emulator
         platformName: 'Android',
-      //  browserName: 'Chrome',
-        'appium:deviceName': 'emulator-5554',
-        'appium:platformVersion': '12.0',
+        'appium:deviceName': process.env.ANDROID_DEVICE_NAME,
+        'appium:platformVersion': process.env.ANDROID_DEVICE_VERSION,
         'appium:automationName': 'UiAutomator2',
         'appium:orientation': 'PORTRAIT',
-        'appium:app': '/Users/shravanidn/Downloads/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk',
-        //'appium:appWaitActivity': 'com.enphaseenergy.myenlighten.MainActivity',
+        'appium:appPackage': 'com.swaglabsmobileapp',
+        'appium:appActivity': 'com.swaglabsmobileapp.MainActivity',
+        'appium:app': process.env.ANDROID_APP_PATH,
         'appium:noReset': true,
         'appium:newCommandTimeout': 240,
-        'appium:fullReset': false,            // Avoid full reset of the app
-        'appium:autoGrantPermissions': true 
+        'appium:fullReset': false,
+        'appium:autoGrantPermissions': true
     }],
 
     //
@@ -100,11 +103,11 @@ export const config = {
     // baseUrl: 'http://localhost:8080',
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 5000,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
-    connectionRetryTimeout: 120000,
+    connectionRetryTimeout: 30000,
     //
     // Default request retries count
     connectionRetryCount: 3,
@@ -122,7 +125,7 @@ export const config = {
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
     framework: 'cucumber',
-    
+
     //
     // The number of times to retry the entire specfile when it fails as a whole
     // specFileRetries: 1,
@@ -141,14 +144,15 @@ export const config = {
             outputDir: 'allure-results',
             disableWebdriverStepsReporting: true,
             disableWebdriverScreenshotsReporting: false,
-            
+            disableMochaHooks: true
+
         }]
     ],
 
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
-        require: ['./features/step-definitions/steps.js'],
+        require: ['./features/step-definitions/steps.js', './features/support/hooks.js'],
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
@@ -168,7 +172,7 @@ export const config = {
         // <string> (expression) only execute the features or scenarios with tags matching the expression
         tagExpression: '',
         // <number> timeout for step definitions
-        timeout: 600000,
+        timeout: 30000,
         // <boolean> Enable this config to treat undefined definitions as warnings.
         ignoreUndefinedDefinitions: false
     },
@@ -294,7 +298,7 @@ export const config = {
      */
     // afterFeature: function (uri, feature) {
     // },
-    
+
     /**
      * Runs after a WebdriverIO command gets executed
      * @param {string} commandName hook command name

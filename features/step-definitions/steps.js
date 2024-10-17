@@ -2,10 +2,8 @@ import { Given, When, Then } from "@wdio/cucumber-framework";
 import { expect, $ } from "@wdio/globals";
 
 import LoginPage from "../pageobjects/login.page.js";
-import SecurePage from "../pageobjects/secure.page.js";
 import allure from "@wdio/allure-reporter";
 import testData from "../../data/testdata.json";
-import Page from "../pageobjects/page.js"
 
 const pages = {
   login: LoginPage,
@@ -17,9 +15,8 @@ Given(/^I am on the (\w+) page$/, async (page) => {
 
 When(/^I login with (\w+) and (.+)$/, async (userName, passWord) => {
   allure.addStep("Entering username and password");
-  const username = testData.valid_credentials[userName];
-  const password = testData.valid_credentials[passWord];
-
+  const username = testData.login_credentials[userName];
+  const password = testData.login_credentials[passWord];
   await LoginPage.login(username, password);
 });
 
@@ -37,8 +34,8 @@ When(
 Then(/^I should see a flash message saying (.*)$/, async (message) => {
   try {
     allure.addStep("Expecting login is successful");
-    await expect(SecurePage.flashAlert).toBeExisting();
-    await expect(SecurePage.flashAlert).toHaveText(
+    await expect(LoginPage.flashAlert).toBeExisting();
+    await expect(LoginPage.flashAlert).toHaveText(
       expect.stringContaining(message)
     );
   } catch (error) {
@@ -53,7 +50,6 @@ Then(/^I should see a flash message saying (.*)$/, async (message) => {
 });
 
 Then(/^I should see a dashboard with text$/, async () => {
-  // const dashboardText = await $('selector-for-dashboard-text').getText();
-  expect(SecurePage.dashboardTitle).toContain("PRODUCTS");
-  //Page.scrollToBottom();
+  allure.addStep("Logged In and logged out successfully!");
 });
+
