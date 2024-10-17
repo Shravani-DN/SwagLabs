@@ -1,8 +1,0 @@
-"BROKEN","EPIC","FAILED","FEATURE","PASSED","SKIPPED","STORY","UNKNOWN"
-"0","","6","","0","0","","0"
-"0","","1","The Internet Guinea Pig Website: As a user, I can log into the secure area","4","0","","0"
-"0","","1","Swag Labs Demo App Login Functionality check: Login with locked out user","2","0","","0"
-"0","","0","Swag Labs Demo App Login Functionality check: Login with invalid username","3","0","","0"
-"3","","0","Swag Labs Demo App Login Functionality check: Login with empty fields","1","2","","0"
-"0","","0","Swag Labs Demo App Login Functionality check: Login with invalid password","3","0","","0"
-"4","","0","Swag Labs Demo App Login Functionality check: Login with valid username and password","2","0","","0"

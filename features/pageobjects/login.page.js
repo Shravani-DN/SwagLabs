@@ -28,15 +28,7 @@ class LoginPage extends Page {
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
-    }
-
-    /**
-     * overwrite specific options to adapt it to page object
-     */
-    // open () {
-    //     return super.open('login');
-    // }
-   
+    }  
 }
 
 export default new LoginPage();
