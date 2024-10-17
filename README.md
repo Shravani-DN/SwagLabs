@@ -4,7 +4,7 @@ This project uses **WebDriverIO** to automate testing of web and mobile applicat
 
 ### Prerequisites
 
-- **Node.js** version 12.16.1 or higher
+- **Node.js** version v18.20.0 or higher
 - **NPM** (Node Package Manager) or **Yarn**
 - We recommend using **NVM** (Node Version Manager) to manage multiple Node.js versions
 
