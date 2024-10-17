@@ -123,3 +123,6 @@ example:
 
 - [WebDriverIO Documentation](https://webdriver.io/)
 - [NVM Installation Guide](https://github.com/nvm-sh/nvm)
+
+## Sauce Labs Demo Recording link
+- https://drive.google.com/file/d/179Uau21Bb5wH8CDi6pG5d-j1TA1S3wAi/view?usp=drive_link
